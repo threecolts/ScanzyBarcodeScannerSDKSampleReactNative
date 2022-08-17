@@ -58,10 +58,25 @@ Start your application on Simulator:
 
 ```
 npx react-native run-ios
-npx react-native run-adnroid
+npx react-native run-android
 ```
 
 or run the app in Xcode:
 * Open the workspace file ScanzyBarcodeScannerSDKSampleReactNative.xcworkspace (not .xcodeproj) from the ios * directory in Xcode.
 * Adjust Provisioning and Signing settings.
 * Choose one simulator or local device to run the app.
+
+Android troubleshootings:
+* Add the following config in the same build.gradle(Android/app/build.gradle) file to avoid conflicts with the lib filename libc++_shared.so, which is used by React Native as well as by many other 3rd-party modules:
+```
+android {  
+    ...  
+    packagingOptions {      
+        pickFirst '**/libc++_shared.so'  
+    }
+}
+```
+* If there's error like 'Unable to load script. Make sure you're either running a Metro server (run 'react-native start') or that your bundle 'index.android.bundle' is packaged correctly for release.' Run the below script for each build in the root folder, and also make sure the assets folder has been created before running the script.
+```
+npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle
+``` 

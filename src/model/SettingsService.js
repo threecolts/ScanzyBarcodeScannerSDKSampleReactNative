@@ -29,8 +29,8 @@ const SettingsService = (() => {
               settings = {
                 enableBeep: true,
                 enableVibrate: true,
-                enableScanRectOnly: true,
-                enableAutoZoom: true,
+                enableScanRectOnly: false,
+                enableAutoZoom: false,
                 barcode: {
                   '1D': [
                     {type: ScanzyBarcodeFormat.Code128, value: false},

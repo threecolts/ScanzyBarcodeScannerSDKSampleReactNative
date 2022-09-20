@@ -1,7 +1,10 @@
 {
   "name": "ScanzyBarcodeScannerSDKSampleReactNative",
   "version": "0.0.1",
-  "private": true,
+  "description": "react native sample to use react-native-scanzy-barcode-scanner-plugin",
+  "author": "Scanzy",
+  "license": "Commercial",
+  "homepage": "https://scanzy.com",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -20,7 +23,7 @@
     "react-native": "0.69.2",
     "react-native-gesture-handler": "^2.5.0",
     "react-native-safe-area-context": "^4.3.1",
-    "react-native-scanzy-barcode-scanner-plugin": "../react-native-scanzy-barcode-scanner-plugin/",
+    "react-native-scanzy-barcode-scanner-plugin": "^0.0.1",
     "react-native-screens": "^3.14.1",
     "react-native-storage": "^1.0.1",
     "react-native-vector-icons": "^9.2.0"

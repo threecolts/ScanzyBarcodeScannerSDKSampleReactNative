@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {useActionSheet} from '@expo/react-native-action-sheet';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import SettingsService from '../model/SettingsService';
-import ScanzyBarcodeScannerPlugin from 'react-native-scanzy-barcode-scanner-plugin';
+import ScanzyBarcodeScannerPlugin, {ScanzyBarcodeFormat} from 'react-native-scanzy-barcode-scanner-plugin';
 export default function HomeScreen() {
   const {showActionSheetWithOptions} = useActionSheet();
   const DATA = [
@@ -99,53 +99,27 @@ export default function HomeScreen() {
   const scan = type => {
     SettingsService.getSettings().then(settings => {
       try {
-        if (type == '1D') {
-          let options = {
-            enableBeep: settings.enableBeep,
-            enableVibration: settings.enableVibrate,
-            autoZoom: settings.enableAutoZoom,
-            scanCropRectOnly: settings.enableScanRectOnly,
-            formats: settings.barcode['1D']
-              .filter(item => {
-                return item.value;
-              })
-              .map(item => {
-                return item.type;
-              }),
-          };
-
-          // scan
-          ScanzyBarcodeScannerPlugin.scan(options).then(data => {
-            //get the scan result
-            console.log('Scan Result:' + data);
-            if (data != '') {
-              openSheet(data);
-            }
-          });
-        } else {
-          let options = {
-            enableBeep: settings.enableBeep,
-            enableVibration: settings.enableVibrate,
-            autoZoom: settings.enableAutoZoom,
-            scanCropRectOnly: settings.enableScanRectOnly,
-            formats: settings.barcode['2D']
-              .filter(item => {
-                return item.value;
-              })
-              .map(item => {
-                return item.type;
-              }),
-          };
-
-          // scan
-          ScanzyBarcodeScannerPlugin.scan(options).then(data => {
-            //get the scan result
-            console.log('Scan Result:' + data);
-            if (data != '') {
-              openSheet(data);
-            }
-          });
-        }
+        let options = {
+          enableBeep: settings.enableBeep,
+          enableVibration: settings.enableVibrate,
+          autoZoom: settings.enableAutoZoom,
+          scanCropRectOnly: settings.enableScanRectOnly,
+          formats: settings.barcode[type]
+            .filter(item => {
+              return item.value;
+            })
+            .map(item => {
+              return item.type;
+            }),
+        };
+        // scan
+        ScanzyBarcodeScannerPlugin.scan(options).then(data => {
+          //get the scan result
+          console.log('Scan Result:' + data);
+          if (data != '') {
+            openSheet(data);
+          }
+        });
       } catch (e) {
         alert(e);
       }

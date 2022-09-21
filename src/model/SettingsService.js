@@ -29,7 +29,7 @@ const SettingsService = (() => {
               settings = {
                 enableBeep: true,
                 enableVibrate: true,
-                enableScanRectOnly: true,
+                enableScanRectOnly: false,
                 enableAutoZoom: false,
                 barcode: {
                   '1D': [

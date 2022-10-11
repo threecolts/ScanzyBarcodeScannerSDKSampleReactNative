@@ -47,7 +47,7 @@ export default function HomeScreen() {
     showActionSheetWithOptions(
       {
         message: 'Where would you like to do your research?',
-        title: code,
+        title: `${barcode} (${barcodeType})`,
         options,
         cancelButtonIndex, //the third button will be the 'Cancel' button
         destructiveButtonIndex, //the first button will be the 'Delete' option
@@ -116,7 +116,7 @@ export default function HomeScreen() {
         ScanzyBarcodeScannerPlugin.scan(options).then(data => {
           //get the scan result
           console.log('Scan Result:', data.barcode, data.barcodeType);
-          if (data != '') {
+          if (data.barcode != '') {
             openSheet(data.barcode, data.barcodeType);
           }
         });

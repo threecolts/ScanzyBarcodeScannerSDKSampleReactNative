@@ -30,7 +30,7 @@ export default function HomeScreen() {
     },
   ];
 
-  const openSheet = code => {
+  const openSheet = (barcode, barcodeType) => {
     const options = [
       'Amazon Listing',
       'Amazon Prime',
@@ -56,40 +56,40 @@ export default function HomeScreen() {
         // Do something here depending on the button index selected
         switch (buttonIndex) {
           case 0:
-            Linking.openURL('http://www.amazon.com/gp/product/' + code);
-            openSheet(code);
+            Linking.openURL('http://www.amazon.com/gp/product/' + barcode);
+            openSheet(barcode, barcodeType);
             break;
           case 1:
             Linking.openURL(
               'http://www.amazon.com/gp/offer-listing/' +
-                code +
+              barcode +
                 '/sr=/qid=/ref=olp_prime_all?ie=UTF8&colid=&coliid=&condition=all&me=&qid=&seller=&shipPromoFilter=1&sort=sip&sr=',
             );
-            openSheet(code);
+            openSheet(barcode, barcodeType);
             break;
           case 2:
-            Linking.openURL('https://keepa.com/#!product/1-' + code);
-            openSheet(code);
+            Linking.openURL('https://keepa.com/#!product/1-' + barcode);
+            openSheet(barcode, barcodeType);
             break;
           case 3:
-            Linking.openURL('http://camelcamelcamel.com/product/' + code);
-            openSheet(code);
+            Linking.openURL('http://camelcamelcamel.com/product/' + barcode);
+            openSheet(barcode, barcodeType);
             break;
           case 4:
-            Linking.openURL('https://bookscouter.com/sell/' + code);
-            openSheet(code);
+            Linking.openURL('https://bookscouter.com/sell/' + barcode);
+            openSheet(barcode, barcodeType);
             break;
           case 5:
             Linking.openURL(
               'http://www.ebay.com/sch/i.html?_trksid=p2050601.m570.l1313&_nkw=' +
-                code +
+              barcode +
                 '&_sacat=0&_from=R40',
             );
-            openSheet(code);
+            openSheet(barcode, barcodeType);
             break;
           case 6:
-            Linking.openURL('https://www.google.com/search?q=' + code);
-            openSheet(code);
+            Linking.openURL('https://www.google.com/search?q=' + barcode);
+            openSheet(barcode, barcodeType);
             break;
         }
       },
@@ -115,9 +115,9 @@ export default function HomeScreen() {
         // scan
         ScanzyBarcodeScannerPlugin.scan(options).then(data => {
           //get the scan result
-          console.log('Scan Result:' + data);
+          console.log('Scan Result:', data.barcode, data.barcodeType);
           if (data != '') {
-            openSheet(data);
+            openSheet(data.barcode, data.barcodeType);
           }
         });
       } catch (e) {

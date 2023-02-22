@@ -11,7 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {useActionSheet} from '@expo/react-native-action-sheet';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import SettingsService from '../model/SettingsService';
-import ScanzyBarcodeScannerPlugin, {ScanzyBarcodeFormat} from 'react-native-scanzy-barcode-scanner-plugin';
+import ScanzyBarcodeScannerPlugin from 'react-native-scanzy-barcode-scanner-plugin';
 export default function HomeScreen() {
   const {showActionSheetWithOptions} = useActionSheet();
   const DATA = [
@@ -116,7 +116,7 @@ export default function HomeScreen() {
         ScanzyBarcodeScannerPlugin.scan(options).then(data => {
           //get the scan result
           console.log('Scan Result:', data.barcode, data.barcodeType);
-          if (data.barcode != '') {
+          if (data.barcode !== '') {
             openSheet(data.barcode, data.barcodeType);
           }
         });

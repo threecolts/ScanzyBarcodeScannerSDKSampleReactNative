@@ -16,15 +16,16 @@ const SettingsService = (() => {
     },
     getSettings: () => {
       return new Promise((resolve, reject) => {
-        if (settings != null) return resolve(settings);
-        else {
+        if (settings != null) {
+          return resolve(settings);
+        } else {
           storage
             .load({key: 'ScanzySettings'})
             .then(value => {
               settings = value;
               return resolve(settings);
             })
-            .catch(err => {
+            .catch(() => {
               //console.warn(err.message);
               settings = {
                 enableBeep: true,

@@ -99,7 +99,7 @@ export default function HomeScreen() {
   const scan = type => {
     SettingsService.getSettings().then(settings => {
       try {
-        let options = {
+        const options = {
           enableBeep: settings.enableBeep,
           enableVibration: settings.enableVibrate,
           autoZoom: settings.enableAutoZoom,

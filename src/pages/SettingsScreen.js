@@ -21,12 +21,12 @@ export default function SettingsScreen() {
     SettingsService.getSettings().then(data => {
       setCommonSettings([
         {
-          title: 'Beep Enabled',
-          value: data.enableBeep,
+          title: 'Vibration Enabled',
+          value: data.enableVibration,
         },
         {
-          title: 'Vibration Enabled',
-          value: data.enableVibrate,
+          title: 'Beep Enabled',
+          value: data.enableBeep,
         },
         {
           title: 'Auto Zoom',
@@ -34,7 +34,7 @@ export default function SettingsScreen() {
         },
         {
           title: 'Restirct Scanning Area',
-          value: data.enableScanRectOnly,
+          value: data.enableScanCropRectOnly,
         },
       ]);
       setFormatSettings([
@@ -68,10 +68,10 @@ export default function SettingsScreen() {
 
   const updateSettings = () => {
     let settings = {
-      enableBeep: commonSettings[0].value,
-      enableVibrate: commonSettings[1].value,
+      enableVibration: commonSettings[0].value,
+      enableBeep: commonSettings[1].value,
       enableAutoZoom: commonSettings[2].value,
-      enableScanRectOnly: commonSettings[3].value,
+      enableScanCropRectOnly: commonSettings[3].value,
       barcode: {
         '1D': formatSettings[0].data,
         '2D': formatSettings[1].data,

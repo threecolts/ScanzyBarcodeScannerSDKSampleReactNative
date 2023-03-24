@@ -28,10 +28,10 @@ const SettingsService = (() => {
             .catch(() => {
               //console.warn(err.message);
               settings = {
+                enableVibration: true,
                 enableBeep: true,
-                enableVibrate: true,
-                enableScanRectOnly: false,
                 enableAutoZoom: false,
+                enableScanCropRectOnly: false,
                 barcode: {
                   '1D': [
                     {type: ScanzyBarcodeFormat.Code128, value: true},

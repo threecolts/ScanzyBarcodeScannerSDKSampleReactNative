@@ -100,10 +100,10 @@ export default function HomeScreen() {
     SettingsService.getSettings().then(settings => {
       try {
         const options = {
+          enableVibration: settings.enableVibration,
           enableBeep: settings.enableBeep,
-          enableVibration: settings.enableVibrate,
-          autoZoom: settings.enableAutoZoom,
-          scanCropRectOnly: settings.enableScanRectOnly,
+          enableAutoZoom: settings.enableAutoZoom,
+          enableScanCropRectOnly: settings.enableScanCropRectOnly,
           formats: settings.barcode[type]
             .filter(item => {
               return item.value;

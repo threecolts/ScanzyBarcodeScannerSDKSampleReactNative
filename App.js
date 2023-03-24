@@ -16,12 +16,12 @@ import HomeScreen from './src/pages/HomeScreen';
 import SettingsScreen from './src/pages/SettingsScreen';
 import SettingsService from './src/model/SettingsService';
 import {ActionSheetProvider} from '@expo/react-native-action-sheet';
-import ScanzyBarcodeScannerPlugin from 'react-native-scanzy-barcode-scanner-plugin';
+import ScanzyBarcodeManager from 'react-native-scanzy-barcode-scanner-plugin';
 const Stack = createStackNavigator();
 
 const App = props => {
   SettingsService.init();
-  ScanzyBarcodeScannerPlugin.setLicense("BdyCh9eyxw$9#k2qX79Z") //NOTE: BdyCh9eyxw$9#k2qX79Z is just a 7 days free trial key, you should purchase a valid key from Scanzy
+  ScanzyBarcodeManager.setLicense("BdyCh9eyxw$9#k2qX79Z"); //NOTE: BdyCh9eyxw$9#k2qX79Z is just a 7 days free trial key, you should purchase a valid key from Scanzy
   return (
     <ActionSheetProvider>
       <SafeAreaProvider>

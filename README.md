@@ -1,12 +1,12 @@
 # ScanzyBarcodeScannerSDKSampleReactNative
-react native sample to use react-native-scanzy-barcode-scanner-plugin
+React Native sample to use react-native-scanzy-barcode-scanner-plugin
 
 ## Plugins
 
 The following plugins are included:
 
 - [react-native-scanzy-barcode-scanner-plugin](https://github.com/ScanzyLLC/react-native-scanzy-barcode-scanner-plugin)
-To learn how to install react-native-scanzy-barcode-scanner-plugin and use the scan feature, check the above link.
+To learn how to install react-native-scanzy-barcode-scanner-plugin and use the scan feature, check out the above link.
 
 ## Development Setup 💻
 
@@ -15,8 +15,8 @@ To learn how to install react-native-scanzy-barcode-scanner-plugin and use the s
 - Install [Node.js](https://nodejs.org) which includes [Node Package Manager](https://www.npmjs.com/get-npm), version 14 or higher
 - Android development: Install [Android Studio](https://developer.android.com/studio)
 - iOS development: Install [XCode](https://apps.apple.com/de/app/xcode/id497799835?mt=12)
-- ios development: Install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)
-- This project uses [React Native](https://reactnative.dev/) as app development platform and the [npx].
+- iOS development: Install [CocoaPods](https://guides.cocoapods.org/using/getting-started.html)
+- This project uses [React Native](https://reactnative.dev/) as an app development platform and the [npx].
 
 ### Getting Started
 
@@ -76,7 +76,7 @@ android {
     }
 }
 ```
-* If there's error like 'Unable to load script. Make sure you're either running a Metro server (run 'react-native start') or that your bundle 'index.android.bundle' is packaged correctly for release.' Run the below script for each build in the root folder, and also make sure the assets folder has been created before running the script.
+* If there's an error like 'Unable to load script,' make sure you're either running a Metro server (run 'react-native start') or that your bundle 'index.android.bundle' is packaged correctly for release. Run the below script for each build in the root folder, and also make sure the assets folder has been created before running the script.
 ```
 npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle
 ``` 

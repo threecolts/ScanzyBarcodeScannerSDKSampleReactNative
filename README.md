@@ -1,13 +1,6 @@
 # ScanzyBarcodeScannerSDKSampleReactNative
 React Native sample to use react-native-scanzy-barcode-scanner-plugin
 
-## Plugins
-
-The following plugins are included:
-
-- [react-native-scanzy-barcode-scanner-plugin](https://github.com/ScanzyLLC/react-native-scanzy-barcode-scanner-plugin)
-To learn how to install react-native-scanzy-barcode-scanner-plugin and use the scan feature, check out the above link.
-
 ## Development Setup 💻
 
 ### Prerequisites
